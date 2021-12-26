@@ -1,71 +1,86 @@
 import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useLayoutEffect, useState, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { HeaderVideo } from "./HeaderItems/HeaderItemsVideo";
+import { HeaderBanner } from "./HeaderItems/HeaderItemsBanner";
+
 import "./Header.css";
-import video from "./video.mp4";
 
 export const Header = () => {
+  const headerRef = useRef();
+
+  const location = useLocation();
+  const path = location.pathname;
+
   const [active, setActive] = useState(false);
+  const [hideHeaderElem, setHeaderElem] = useState(false);
 
   const activeCorrectFilter = () => {
     setActive(!active);
   };
 
+  const handleHideElement = (value) => {
+    if (value === "/singIn/" || value === "/singUp/") {
+      setHeaderElem(false);
+    } else {
+      setHeaderElem(true);
+    }
+  };
+
+  useLayoutEffect(() => {
+    let header = headerRef.current;
+    handleHideElement(path);
+    if (path === "/singIn/" || path === "/singUp/") {
+      header.style.height = "60px";
+    } else {
+      header.style.height = "100vh";
+    }
+  }, [path]);
+
   return (
     <>
-      <section className={"showcase" + (active ? " active" : "")}>
-        <header>
-          <h2 className="logo">FOOTBALL</h2>
+      <header className="fix" ref={headerRef}>
+        {hideHeaderElem ? <HeaderVideo /> : null}
+        <div className="nav-area">
+          <div className="logo">
+            <span>S</span>afron
+          </div>
           <div
             className={"toggle" + (active ? " active" : "")}
             onClick={activeCorrectFilter}
           ></div>
-        </header>
-        <video src={video} type="video/mp4" muted loop autoPlay></video>
-        <div className="overlay"></div>
-        <div className="text">
-          <h2>Never Stop To </h2>
-          <h3>Exploring The World</h3>
-          <p>
-            Lorem ipsum dolor sit Linkmet, consectetur Linkdipisicing elit, sed
-            do eiusmod tempor incididunt ut lLinkbore et dolore mLinkgnLink
-            LinkliquLink. Ut enim Linkd minim veniLinkm, quis nostrud
-            exercitLinktion ullLinkmco lLinkboris nisi ut Linkliquip ex eLink
-            commodo consequLinkt.
-          </p>
-          <Link to="/">Explore</Link>
+          <div className="nav">
+            <ul className="menu-area">
+              <li className="active">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="active">
+                <Link to="/singIn/">sing In</Link>
+              </li>
+              <li className="active">
+                <Link to="/singUp/">sing Up</Link>
+              </li>
+            </ul>
+          </div>
         </div>
-        <ul className="social">
-          <li>
-            <Link to="#">
-              <img src="https://i.ibb.co/x7P24fL/facebook.png" alt="img1" />
-            </Link>
-          </li>
-          <li>
-            <Link to="#">
-              <img src="https://i.ibb.co/Wnxq2Nq/twitter.png" alt="img2" />
-            </Link>
-          </li>
-          <li>
-            <Link to="#">
-              <img src="https://i.ibb.co/ySwtH4B/instagram.png" alt="img3" />
-            </Link>
-          </li>
-        </ul>
-      </section>
-      <div className="menu">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/singin">Sing in</Link>
-          </li>
-          <li>
-            <Link to="/singup">Sing up</Link>
-          </li>
-        </ul>
-      </div>
+        {hideHeaderElem ? <HeaderBanner /> : null}
+
+        <div className={"showcase" + (active ? "" : " hide-menu")}>
+          <div className="menu">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/singIn/">Sing in</Link>
+              </li>
+              <li>
+                <Link to="/singUp/">Sing up</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
     </>
   );
 };

@@ -1,20 +1,21 @@
 import React from "react";
+import "./resourses/styles.css";
 import { Layout } from "./layout/Layout";
 import { Routes, Route } from "react-router-dom";
-import { Home, SingIn, SingUp } from "./pages";
-
-//import "./resourses/styles.css";
+import { Home, SingIn, SingUp, Whoops404 } from "./pages";
 
 function App() {
   return (
-    <div>
-      <Layout />
-      <Routes>
-        <Route exact path="/" component={Home} />
-        <Route path="/singIn" component={SingIn} />
-        <Route path="/singUp" component={SingUp} />
-      </Routes>
-    </div>
+    <>
+      <Layout>
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/singIn" element={<SingIn />} />
+          <Route path="/singUp" element={<SingUp />} />
+          <Route path="*" element={<Whoops404 />} />
+        </Routes>
+      </Layout>
+    </>
   );
 }
 

@@ -1,5 +1,10 @@
 import React from "react";
+import { VideoMaths } from "../../components/VideoMath";
 
 export const SingIn = () => {
-  return <div>SingIn</div>;
+  return (
+    <div>
+      <VideoMaths />
+    </div>
+  );
 };
