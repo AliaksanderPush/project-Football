@@ -1,5 +1,4 @@
 import React from "react";
-import { Spinner } from "../components/Spinner";
 import { UseFetch } from "./UseFetch";
 
 export const Fetch = ({

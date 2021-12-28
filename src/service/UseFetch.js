@@ -27,6 +27,7 @@ export const UseFetch = (opts, axiosInstance = defaultAxios) => {
       })
 
       .catch((error) => {
+        console.log(error);
         setState({
           ...state,
           error,

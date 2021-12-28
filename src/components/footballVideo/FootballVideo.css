@@ -1,0 +1,12 @@
+.container {
+  margin: 5%;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 5%;
+  border-top: solid 1px rgba(128, 128, 128, 0.452);
+  background-color: whitesmoke;
+}

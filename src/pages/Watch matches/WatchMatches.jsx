@@ -4,8 +4,8 @@ import "./WatchMatches.css";
 
 export const WatchMatches = () => {
   return (
-    <div className="SingIn">
+    <>
       <FootballVideo />
-    </div>
+    </>
   );
 };
