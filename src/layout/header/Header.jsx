@@ -20,7 +20,7 @@ export const Header = () => {
   };
 
   const handleHideElement = (value) => {
-    if (value === "/singIn/" || value === "/singUp/") {
+    if (value === "/watch_matches/" || value === "/singUp/") {
       setHeaderElem(false);
     } else {
       setHeaderElem(true);
@@ -30,7 +30,7 @@ export const Header = () => {
   useLayoutEffect(() => {
     let header = headerRef.current;
     handleHideElement(path);
-    if (path === "/singIn/" || path === "/singUp/") {
+    if (path === "/watch_matches/" || path === "/singUp/") {
       header.style.height = "60px";
     } else {
       header.style.height = "100vh";
@@ -55,7 +55,7 @@ export const Header = () => {
                 <Link to="/">Home</Link>
               </li>
               <li className="active">
-                <Link to="/singIn/">sing In</Link>
+                <Link to="/watch_matches/">Whatch Matches</Link>
               </li>
               <li className="active">
                 <Link to="/singUp/">sing Up</Link>
@@ -72,7 +72,7 @@ export const Header = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/singIn/">Sing in</Link>
+                <Link to="/watch_matches/">Whatch Matches</Link>
               </li>
               <li>
                 <Link to="/singUp/">Sing up</Link>

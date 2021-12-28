@@ -18,10 +18,10 @@ export const UseFetch = (opts, axiosInstance = defaultAxios) => {
   useEffect(() => {
     if (!opts.url) return;
     axiosInstance(opts)
-      .then((data) => {
+      .then((response) => {
         setState({
           ...state,
-          data,
+          data: response.data,
           loading: false,
         });
       })
