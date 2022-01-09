@@ -6,6 +6,7 @@ import {
   LOADER_DISPLAY_OFF,
   ERROR_DISPLAY_ON,
   ERROR_DISPLAY_OFF,
+  CHOOSE_CHAMP,
 } from "./types";
 
 export function myUseAxios({ url, types }) {
@@ -53,5 +54,12 @@ export function errorOff() {
 export function errorOn() {
   return {
     type: ERROR_DISPLAY_ON,
+  };
+}
+
+export function chooseSelect(index) {
+  return {
+    type: CHOOSE_CHAMP,
+    champ: index,
   };
 }
