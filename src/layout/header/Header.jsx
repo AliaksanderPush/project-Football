@@ -1,8 +1,9 @@
 import React from "react";
 import { useLayoutEffect, useState, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { HeaderVideo } from "./HeaderItems/HeaderItemsVideo";
 import { HeaderBanner } from "./HeaderItems/HeaderItemsBanner";
+import { CustomLink } from "../../service/CustomLink";
 
 import "./Header.css";
 
@@ -20,7 +21,7 @@ export const Header = () => {
   };
 
   const handleHideElement = (value) => {
-    if (value === "/watch_matches/" || value === "/singUp/") {
+    if (value !== "/") {
       setHeaderElem(false);
     } else {
       setHeaderElem(true);
@@ -30,7 +31,7 @@ export const Header = () => {
   useLayoutEffect(() => {
     let header = headerRef.current;
     handleHideElement(path);
-    if (path === "/watch_matches/" || path === "/singUp/") {
+    if (path !== "/") {
       header.style.height = "60px";
     } else {
       header.style.height = "100vh";
@@ -52,13 +53,13 @@ export const Header = () => {
           <div className="nav">
             <ul className="menu-area">
               <li className="active">
-                <Link to="/">Home</Link>
+                <CustomLink to="/">Home</CustomLink>
               </li>
               <li className="active">
-                <Link to="/watch_matches/">Whatch Matches</Link>
+                <CustomLink to="/watch_matches/">Whatch Matches</CustomLink>
               </li>
               <li className="active">
-                <Link to="/singUp/">sing Up</Link>
+                <CustomLink to="/singUp/">sing Up</CustomLink>
               </li>
             </ul>
           </div>
@@ -69,13 +70,13 @@ export const Header = () => {
           <div className="menu">
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <CustomLink to="/">Home</CustomLink>
               </li>
               <li>
-                <Link to="/watch_matches/">Whatch Matches</Link>
+                <CustomLink to="/watch_matches/">Whatch Matches</CustomLink>
               </li>
               <li>
-                <Link to="/singUp/">Sing up</Link>
+                <CustomLink to="/singUp/">Sing up</CustomLink>
               </li>
             </ul>
           </div>

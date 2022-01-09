@@ -1,1 +1,9 @@
+.watchMatches {
+  position: relative;
+}
 
+.loader-styles {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
