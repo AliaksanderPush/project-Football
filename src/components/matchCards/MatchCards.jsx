@@ -26,7 +26,7 @@ export const MatchCards = () => {
   return (
     <div className="err">
       <div className="cards container">
-        {videoMatches &&
+        {!!videoMatches &&
           videoMatches.map((item) => {
             return <SingleMatchCard key={item.title} info={item} />;
           })}

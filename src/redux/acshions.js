@@ -6,7 +6,7 @@ import {
   LOADER_DISPLAY_OFF,
   ERROR_DISPLAY_ON,
   ERROR_DISPLAY_OFF,
-  CHOOSE_CHAMP,
+  FILTER_CHAMP,
 } from "./types";
 
 export function myUseAxios({ url, types }) {
@@ -57,9 +57,9 @@ export function errorOn() {
   };
 }
 
-export function chooseSelect(index) {
+export function filterChamp(champ) {
   return {
-    type: CHOOSE_CHAMP,
-    champ: index,
+    type: FILTER_CHAMP,
+    liga: champ,
   };
 }

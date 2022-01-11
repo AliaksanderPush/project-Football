@@ -1,36 +1,50 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { chooseSelect } from "../../redux";
+import { filterChamp } from "../../redux";
 
 export const ChooseChamps = () => {
-  const texts = ["choose Champ", "La liga", "BLR champ"];
-  const [value, setValue] = useState("");
+  const btns = [
+    "ENGLAND: Premier League",
+    "ENGLAND: League Cup",
+    "ENGLAND: FA Cup",
+    "SPAIN: La Liga",
+    "SPAIN: National cup",
+    "SPAIN: La Liga2",
+    "FRANCE: National cup",
+    "FRANCE: Ligue 1",
+    "ITALY: Serie A",
+    "GERMANY: Bundesliga",
+    "PORTUGAL: Liga Portugal",
+    "MEXICO: Liga de Expansion, Clausura",
+    "MEXICO: Clausura",
+    "MEXICO: Clausura",
+    "AFRICA NATIONS CUP: Group A",
+    "INDIA: ISL",
+    "QATAR: Stars League",
+  ];
+
+  //const [value, setValue] = useState("");
+
   const dispath = useDispatch();
 
   function handleChange(e) {
-    setValue(e.target.value);
+    dispath(filterChamp(e.target.value));
   }
-
-  function handleDispath(value) {
-    dispath(chooseSelect(value));
-  }
-
-  useEffect(() => {
-    handleDispath(value);
-  }, [value]);
 
   return (
     <div className="chooseChamp">
-      <select value={value} onChange={handleChange}>
-        {texts.map((item, index) => {
-          return (
-            <option key={index} value={index}>
-              {item}
-            </option>
-          );
-        })}
-      </select>
+      {btns.map((item, index) => {
+        return (
+          <input
+            onClick={handleChange}
+            type="button"
+            value={item}
+            style={{ margin: "5px" }}
+            key={index}
+          />
+        );
+      })}
     </div>
   );
 };

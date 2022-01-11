@@ -4,7 +4,6 @@ const initialState = {
 };
 
 export const chooseChampReducer = (state = initialState, action) => {
-  console.log("chooseChampReducer>>", action);
   switch (action.type) {
     case CHOOSE_CHAMP:
       return {
