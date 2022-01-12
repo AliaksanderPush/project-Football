@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { filterChamp } from "../../redux";
 
@@ -23,8 +22,6 @@ export const ChooseChamps = () => {
     "INDIA: ISL",
     "QATAR: Stars League",
   ];
-
-  //const [value, setValue] = useState("");
 
   const dispath = useDispatch();
 
