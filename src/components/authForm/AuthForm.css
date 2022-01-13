@@ -1,0 +1,13 @@
+.auth-form {
+  width: 50vw;
+  height: calc(100vh - 200px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.form-sub {
+  max-width: 360px;
+}

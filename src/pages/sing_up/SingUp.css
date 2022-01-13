@@ -1,0 +1,6 @@
+.auth-page {
+  height: calc(100vh - 160px);
+  background: url("./campNou.jpg") no-repeat;
+  background-size: cover;
+  opacity: 0.8;
+}
