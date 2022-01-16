@@ -1,5 +1,7 @@
 .home-page {
-  height: 100px;
   width: 100%;
-  background-color: coral;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 5%;
 }

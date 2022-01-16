@@ -1,26 +1,28 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { filterChamp } from "../../redux";
+import uniqid from "uniqid";
+import "./ChooseChamp.css";
 
 export const ChooseChamps = () => {
   const btns = [
-    "ENGLAND: Premier League",
-    "ENGLAND: League Cup",
-    "ENGLAND: FA Cup",
-    "SPAIN: La Liga",
-    "SPAIN: National cup",
-    "SPAIN: La Liga2",
-    "FRANCE: National cup",
-    "FRANCE: Ligue 1",
-    "ITALY: Serie A",
-    "GERMANY: Bundesliga",
-    "PORTUGAL: Liga Portugal",
-    "MEXICO: Liga de Expansion, Clausura",
-    "MEXICO: Clausura",
-    "MEXICO: Clausura",
-    "AFRICA NATIONS CUP: Group A",
-    "INDIA: ISL",
-    "QATAR: Stars League",
+    { id: uniqid(), liga: "ENGLAND: Premier League" },
+    { id: uniqid(), liga: "ENGLAND: League Cup" },
+    { id: uniqid(), liga: "ENGLAND: FA Cup" },
+    { id: uniqid(), liga: "SPAIN: La Liga" },
+    { id: uniqid(), liga: "SPAIN: National cup" },
+    { id: uniqid(), liga: "SPAIN: La Liga2" },
+    { id: uniqid(), liga: "FRANCE: National cup" },
+    { id: uniqid(), liga: "FRANCE: Ligue 1" },
+    { id: uniqid(), liga: "ITALY: Serie A" },
+    { id: uniqid(), liga: "GERMANY: Bundesliga" },
+    { id: uniqid(), liga: "PORTUGAL: Liga Portugal" },
+    { id: uniqid(), liga: "MEXICO: Clausura" },
+    { id: uniqid(), liga: "MEXICO: Clausura" },
+    { id: uniqid(), liga: "AFRICA NATIONS CUP: Group A" },
+    { id: uniqid(), liga: "INDIA: ISL" },
+    { id: uniqid(), liga: "QATAR: Stars League" },
+    { id: uniqid(), liga: "MEXICO: Liga de Expansion, Clausura" },
   ];
 
   const dispath = useDispatch();
@@ -33,13 +35,16 @@ export const ChooseChamps = () => {
     <div className="chooseChamp">
       {btns.map((item, index) => {
         return (
-          <input
-            onClick={handleChange}
-            type="button"
-            value={item}
-            style={{ margin: "5px" }}
-            key={index}
-          />
+          <div className="form_radio_btn" key={item.id}>
+            <input
+              id={"radio-" + index}
+              type="radio"
+              name="radio"
+              value={item.liga}
+              onClick={handleChange}
+            />
+            <label htmlFor={"radio-" + index}>{item.liga}</label>
+          </div>
         );
       })}
     </div>

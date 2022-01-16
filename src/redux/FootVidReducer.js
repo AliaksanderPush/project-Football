@@ -11,16 +11,6 @@ export const footVidReducer = (state = initialState, action) => {
         ...state,
         matches: action.data,
       };
-    // case FILTER_CHAMP:
-    //   const { liga } = action;
-    //   const { matches } = state;
-    //   const filterMatches = matches.filter((item) => item.competition === liga);
-
-    //  return {
-    //    ...state,
-    //    matches: filterMatches,
-    //  };
-
     default:
       return state;
   }

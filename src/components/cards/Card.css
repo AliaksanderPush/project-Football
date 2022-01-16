@@ -1,0 +1,17 @@
+.card-home {
+  max-width: 300px;
+  height: 350px;
+  margin: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-home-item img {
+  border-radius: 50%;
+}
+.card-home-text {
+  width: 100%;
+  text-align: center;
+}
