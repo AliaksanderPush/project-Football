@@ -1,6 +1,13 @@
 import React from "react";
-import video from "./video.mp4";
 
 export const HeaderVideo = () => {
-  return <video className="vid-bg" src={video} autoPlay loop muted></video>;
+  return (
+    <video
+      className="vid-bg"
+      src="/video/video.mp4"
+      autoPlay
+      loop
+      muted
+    ></video>
+  );
 };

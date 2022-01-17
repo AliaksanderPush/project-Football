@@ -1,14 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
 export const HeaderBanner = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/watch_matches");
+  };
   return (
     <>
-      <div className="banner-text">
+      <div className="header-text">
         <h2>
           Wach <span>FOOTBALL</span>
         </h2>
         <p>Build Premium</p>
-        <button className="btn">Contact</button>
+        <button className="header-button" onClick={handleClick}>
+          Watch
+        </button>
         <ul className="social">
           <li>
             <a

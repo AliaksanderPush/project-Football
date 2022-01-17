@@ -44,13 +44,13 @@ export const Header = () => {
         {hideHeaderElem ? <HeaderVideo /> : null}
         <div className="nav-area">
           <div className="logo">
-            <span>S</span>afron
+            <span>F</span>ootball
           </div>
           <div
             className={"toggle" + (active ? " active" : "")}
             onClick={activeCorrectFilter}
           ></div>
-          <div className="nav">
+          <div className="header-nav">
             <ul className="menu-area">
               <li className="active">
                 <CustomLink to="/">Home</CustomLink>

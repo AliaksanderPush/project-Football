@@ -43,8 +43,8 @@ export const MatchCards = () => {
   }, [dispatch]);
 
   return (
-    <div className="err">
-      <div className="cards container">
+    <div className="container-fluid">
+      <div className="row justify-content-center">
         {!!matchsFilter.length &&
           matchsFilter.map((item) => {
             return <SingleMatchCard key={item.title} info={item} />;
