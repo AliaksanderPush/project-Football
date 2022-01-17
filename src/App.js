@@ -4,6 +4,7 @@ import { Layout } from "./layout/Layout";
 import { Routes, Route } from "react-router-dom";
 import { Home, WatchMatches, SingUp, Whoops404 } from "./pages";
 import { MatchLive, RegistrationForm } from "./components";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

@@ -4,7 +4,7 @@ export const Info = [
   {
     id: uniqid(),
     aos: "fade-left",
-    src: "/img/rooney.png",
+    src: "/img/england.png",
     liga: "ENGLAND: Premier League",
   },
   {
@@ -17,7 +17,7 @@ export const Info = [
   {
     id: uniqid(),
     aos: "fade-left",
-    src: "/img/messi.png",
+    src: "/img/Laliga.png",
     liga: "SPAIN: La Liga",
   },
   {
@@ -30,7 +30,7 @@ export const Info = [
   {
     id: uniqid(),
     aos: "fade-right",
-    src: "/img/mbape.png",
+    src: "/img/france.png",
     liga: "FRANCE: National cup",
   },
 
@@ -43,7 +43,7 @@ export const Info = [
   {
     id: uniqid(),
     aos: "zoom-in",
-    src: "/img/ronaldo.png",
+    src: "/img/portugal.png",
     liga: "PORTUGAL: Liga Portugal",
   },
 

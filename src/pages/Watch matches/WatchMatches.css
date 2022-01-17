@@ -1,9 +1,10 @@
 .watchMatches {
   position: relative;
+  height: 100vh;
 }
 
 .loader-styles {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: calc(50%-50px);
+  top: calc(50%-110px);
 }
