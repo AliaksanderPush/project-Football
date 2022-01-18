@@ -5,5 +5,5 @@ export * from "./matchLive/MatchLive";
 export * from "./errorBandle/Error";
 export * from "./chooseChamp/ChooseChamps";
 export * from "./validation/Validation";
-export * from "./authForm/AuthForm";
 export * from "./registrForm/RegistrationForm";
+export * from "./authForm/AuthForm";

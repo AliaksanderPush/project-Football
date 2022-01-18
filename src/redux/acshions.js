@@ -8,6 +8,8 @@ import {
   ERROR_DISPLAY_OFF,
   FILTER_CHAMP,
   GET_SERVER_AUTH,
+  USER_ENTER,
+  USER_LEFT
 } from "./types";
 
 export function myUseAxios({ url, types }) {
@@ -78,11 +80,28 @@ export function getInfo() {
       dispatch({
         type: GET_SERVER_AUTH,
         auth: JSON.parse(data.result),
+        ented: true
       });
     } catch (error) {
       dispatch(errorOn());
       console.error(error);
       dispatch(loaderOff());
     }
+  };
+}
+export function userEnter(userName, userEnt) {
+  return {
+    type: USER_ENTER,
+    auth: userName,
+    ented: userEnt
+  };
+}
+
+export function userLeft() {
+  return {
+    type: USER_LEFT,
+    auth: false,
+    ented: false, 
+    
   };
 }

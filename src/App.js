@@ -15,7 +15,7 @@ function App() {
           <Route path="watch_matches" element={<WatchMatches />} />
           <Route path="watch_matches/:title" element={<MatchLive />} />
           <Route path="singUp" element={<SingUp />} />
-          <Route path="singUp/:registration" element={<RegistrationForm />} />
+          <Route path="singUp/:registration" element={<RegistrationForm/>} />
           <Route path="*" element={<Whoops404 />} />
         </Route>
       </Routes>

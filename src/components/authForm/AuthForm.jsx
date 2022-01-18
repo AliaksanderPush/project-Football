@@ -1,5 +1,5 @@
-import React, { MouseEvent, useEffect, useState } from "react";
-import { loginValidate, passwordValidate } from "../validation/Validation";
+import React, { useEffect, useState } from "react";
+import { loginValidate, passwordValidate} from '../validation/Validation';
 import { Typography } from "@mui/material";
 import { Link } from "@mui/material";
 import TextField from "@mui/material/TextField";
@@ -8,43 +8,42 @@ import SendIcon from "@mui/icons-material/Send";
 import {
   useForm,
   Controller,
-  SubmitHandler,
   useFormState,
 } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getInfo } from "../../redux/acshions";
-import { rootReducer } from "../../redux/rootReducer";
 import "./AuthForm.css";
 
-interface IsignInForm {
-  login: string;
-  password: string;
-}
 
-type AppState = ReturnType<typeof rootReducer>;
 
-export const AuthForm: React.FC = () => {
-  const { handleSubmit, control } = useForm<IsignInForm>();
+
+export const AuthForm = () => {
+  const { handleSubmit, control } = useForm();
   const { errors } = useFormState({ control });
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const users = useSelector((state): AppState => {
-    return state;
+  const users = useSelector((state) => {
+    console.log('state>>',state.authReducer.user)
+   // return state;
   });
   const [user, setUser] = useState({});
   const [value, setValue] = useState({});
-  const onSubmit: SubmitHandler<IsignInForm> = (data) => {
+  const [message, setMessage] = useState(false);
+  const onSubmit = (data) => {
     dispatch(getInfo());
     setValue(data);
+    setMessage(true);
+    setTimeout(() => {
+      setMessage(false)
+    },2000);
   };
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (e) => {
     e.preventDefault();
     navigate("/singUp/registration");
   };
-  console.log("user>>>", user);
-  console.log("value>>>", value);
+  
   useEffect(() => {
     setUser(users);
   }, [users]);
@@ -119,6 +118,12 @@ export const AuthForm: React.FC = () => {
           Create your account
         </Link>
       </div>
+      { !!message 
+          ? <Typography variant="h6" component="div" className="registration-mess"
+            sx={{ color: "green" }} 
+            >You have successfully registered!</Typography>
+          : null
+        }
     </div>
   );
 };

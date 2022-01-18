@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   loginValidate,
   passwordValidate,
@@ -11,23 +11,28 @@ import SendIcon from "@mui/icons-material/Send";
 import {
   useForm,
   Controller,
-  SubmitHandler,
   useFormState,
 } from "react-hook-form";
-import { SendServer } from "../../server/SendServer";
+import { SendServer } from '../../redux/acshionsServer/SendServer';
+import { useDispatch } from "react-redux";
+import { userEnter } from '../../redux/acshions';
+import { useNavigate } from "react-router";
 import "./RegistrationForm.css";
 
-interface IsigupInForm {
-  loginReg: string;
-  password: string;
-  email: string;
-}
 
-export const RegistrationForm: React.FC = () => {
-  const { handleSubmit, control } = useForm<IsigupInForm>();
+export const RegistrationForm = () => {
+  const { handleSubmit, control } = useForm();
+  const [mess, setMess] = useState(false); 
   const { errors } = useFormState({ control });
-  const onSubmit: SubmitHandler<IsigupInForm> = (data) => {
-    SendServer(data);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const onSubmit = (data) => {
+       SendServer(data);
+       setMess(!mess);
+       dispatch(userEnter(data, true))
+       setTimeout(() => {
+        navigate('/watch_matches')
+       }, 2000)
   };
 
   return (
@@ -111,6 +116,13 @@ export const RegistrationForm: React.FC = () => {
         >
           Send
         </Button>
+        { !!mess 
+          ? <Typography variant="h6" component="div" className="registration-mess"
+            sx={{ color: "green" }} 
+            >You have successfully registered!</Typography>
+          : null
+        }
+         
       </form>
     </div>
   );

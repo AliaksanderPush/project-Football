@@ -11,4 +11,5 @@ export const rootReducer = combineReducers({
   AppReducer,
   chooseChampReducer,
   authReducer,
+  
 });

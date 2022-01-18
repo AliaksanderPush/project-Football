@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthForm } from "../../components";
+import { AuthForm } from "../../components/authForm/AuthForm";
 import { useSelector } from "react-redux";
 import { Error } from "../../components";
 import "./SingUp.css";
