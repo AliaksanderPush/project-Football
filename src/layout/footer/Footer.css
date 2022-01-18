@@ -4,5 +4,8 @@
   overflow: hidden;
   margin-top: auto;
   color: #fff;
+ 
+}
+.footer h6 {
   background-color: rgba(0, 0, 0, 0.7);
 }

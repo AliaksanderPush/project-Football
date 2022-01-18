@@ -213,7 +213,7 @@ header {
 .menu ul li a:hover {
   color: blue;
 }
-@media (max-width: 641px) {
+@media (max-width: 677px) {
   .header-nav {
     display: none;
   }
@@ -222,7 +222,7 @@ header {
   }
 }
 
-@media (max-width: 641px) {
+@media (max-width: 677px) {
   .header-text h2 {
     font-size: 3em;
   }

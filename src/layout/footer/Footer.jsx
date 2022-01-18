@@ -18,7 +18,8 @@ export const Footer = () => {
 
   return (
     <footer className="footer">
-      <Typography variant="h6" align="center">
+      <Typography variant="h6" align="center 
+      ">
         Play Football
       </Typography>
       <BottomNavigation
@@ -26,13 +27,14 @@ export const Footer = () => {
         value={value}
         onChange={handleChange}
         sx={{
-          bgcolor: "rgba(0, 0, 0, 0.7)",
+          bgcolor: "rgba(0, 0, 0, 0.7)", 
           color: "#fff",
         }}
       >
         <BottomNavigationAction
           sx={{
             color: "#fff",
+    
           }}
           label="Recents"
           value="recents"
