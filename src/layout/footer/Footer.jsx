@@ -17,24 +17,29 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="footer">
-      <Typography variant="h6" align="center 
-      ">
+    <div className="footer">
+      <Typography
+        variant="h6"
+        align="center"
+        sx={{
+          color: "#fff",
+        }}
+      >
         Play Football
       </Typography>
+
       <BottomNavigation
+        className="footer-item"
         showLabels
         value={value}
         onChange={handleChange}
         sx={{
-          bgcolor: "rgba(0, 0, 0, 0.7)", 
           color: "#fff",
         }}
       >
         <BottomNavigationAction
           sx={{
             color: "#fff",
-    
           }}
           label="Recents"
           value="recents"
@@ -57,6 +62,6 @@ export const Footer = () => {
           icon={<LocationOnIcon />}
         />
       </BottomNavigation>
-    </footer>
+    </div>
   );
 };

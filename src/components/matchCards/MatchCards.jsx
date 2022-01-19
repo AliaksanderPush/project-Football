@@ -6,8 +6,6 @@ import { useEffect } from "react";
 import { myUseAxios } from "../../redux";
 import { VIDEO_MATCHES_LOAD } from "../../redux";
 
-import "./MatchCards.css";
-
 export const MatchCards = () => {
   const [filter, setFilter] = useState("");
   const dispatch = useDispatch();
@@ -44,7 +42,7 @@ export const MatchCards = () => {
 
   return (
     <div className="container-fluid">
-      <div className="row justify-content-center">
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 ">
         {!!matchsFilter.length &&
           matchsFilter.map((item) => {
             return <SingleMatchCard key={item.title} info={item} />;

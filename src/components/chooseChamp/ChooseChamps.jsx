@@ -32,21 +32,25 @@ export const ChooseChamps = () => {
   }
 
   return (
-    <div className="chooseChamp">
-      {btns.map((item, index) => {
-        return (
-          <div className="form_radio_btn" key={item.id}>
-            <input
-              id={"radio-" + index}
-              type="radio"
-              name="radio"
-              value={item.liga}
-              onClick={handleChange}
-            />
-            <label htmlFor={"radio-" + index}>{item.liga}</label>
-          </div>
-        );
-      })}
+    <div className="chooseChamp container">
+      <div className="row">
+        <div className="col">
+          {btns.map((item, index) => {
+            return (
+              <div className="form_radio_btn" key={item.id}>
+                <input
+                  id={"radio-" + index}
+                  type="radio"
+                  name="radio"
+                  value={item.liga}
+                  onClick={handleChange}
+                />
+                <label htmlFor={"radio-" + index}>{item.liga}</label>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

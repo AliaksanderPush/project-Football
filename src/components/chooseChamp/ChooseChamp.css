@@ -1,9 +1,3 @@
-.chooseChamp {
-  max-width: 90%;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-}
 .form_radio_btn {
   display: inline-block;
   margin-right: 10px;

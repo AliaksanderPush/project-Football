@@ -3,8 +3,8 @@ import "./Error.css";
 
 export const Error = () => {
   return (
-    <>
-      <p className="error">Ошибка загрузки! Что-то пошло не так (:</p>
-    </>
+    <div className="error">
+      <span>Ошибка загрузки! Что-то пошло не так (:</span>
+    </div>
   );
 };
