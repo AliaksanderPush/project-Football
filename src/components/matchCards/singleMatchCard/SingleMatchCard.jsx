@@ -21,7 +21,7 @@ export const SingleMatchCard = ({ info }) => {
 
   return (
     <div
-      className="col d-flex justify-content-center item-card"
+      className="col d-flex justify-content-center item-card mt-5"
       onClick={() => handleClick(info)}
     >
       <Card sx={{ maxWidth: 345 }}>
