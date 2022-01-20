@@ -17,7 +17,8 @@
 }
 
 .video_info span {
-  background-color: black;
+  background-color: #f5bb00;
+  border-radius: 5px;
   color: aliceblue;
   padding: 5px;
   width: 100px;

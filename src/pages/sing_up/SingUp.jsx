@@ -10,9 +10,16 @@ export const SingUp = () => {
     return AppReducer.error;
   });
   return (
-    <div className="auth-page">
-      {err ? <Error /> : null}
-      <AuthForm />
-    </div>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-sm-12 col-md-6 ">
+          <AuthForm /> 
+          </div>
+          <div className="col-sm-12 col-md-6 auth-page  ">
+          {err ? <Error /> : null}
+          </div>
+        </div>
+      </div>
+    
   );
 };
