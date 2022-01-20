@@ -8,3 +8,12 @@ export const Error = () => {
     </div>
   );
 };
+export const ErrorMes = () => {
+  return <span className="err">The username or password is incorrect!</span>;
+};
+export const SoccessMesReg = () => {
+  return <span className="soccess">You have successfully registered!</span>;
+};
+export const SoccessMesAuth = () => {
+  return <span className="soccess">Welcome</span>;
+};

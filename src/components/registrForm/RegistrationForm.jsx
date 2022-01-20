@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import {
   loginValidate,
   passwordValidate,
@@ -8,31 +8,27 @@ import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
-import {
-  useForm,
-  Controller,
-  useFormState,
-} from "react-hook-form";
-import { SendServer } from '../../redux/acshionsServer/SendServer';
+import { useForm, Controller, useFormState } from "react-hook-form";
+import { SendServer } from "../../redux/acshionsServer/SendServer";
 import { useDispatch } from "react-redux";
-import { userEnter } from '../../redux/acshions';
+import { userEnter } from "../../redux/acshions";
 import { useNavigate } from "react-router";
+import { SoccessMesReg } from "../errorBandle/Error";
 import "./RegistrationForm.css";
-
 
 export const RegistrationForm = () => {
   const { handleSubmit, control } = useForm();
-  const [mess, setMess] = useState(false); 
+  const [mess, setMess] = useState(false);
   const { errors } = useFormState({ control });
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onSubmit = (data) => {
-       SendServer(data);
-       setMess(!mess);
-       dispatch(userEnter(data, true))
-       setTimeout(() => {
-        navigate('/watch_matches')
-       }, 2000)
+    SendServer(data);
+    setMess(!mess);
+    dispatch(userEnter(data, true));
+    setTimeout(() => {
+      navigate("/watch_matches");
+    }, 2000);
   };
 
   return (
@@ -86,14 +82,13 @@ export const RegistrationForm = () => {
 
         <Controller
           control={control}
-          name="password"
+          name="passwordReg"
           rules={passwordValidate}
           defaultValue=""
           render={({ field }) => (
             <TextField
               {...field}
               id="outlined-error-helper-text3"
-              name="password"
               label="password"
               size="small"
               margin="normal"
@@ -116,13 +111,16 @@ export const RegistrationForm = () => {
         >
           Send
         </Button>
-        { !!mess 
-          ? <Typography variant="h6" component="div" className="registration-mess"
-            sx={{ color: "green" }} 
-            >You have successfully registered!</Typography>
-          : null
-        }
-         
+        {!!mess ? (
+          <Typography
+            variant="h6"
+            component="div"
+            className="registration-mess"
+            sx={{ color: "green" }}
+          >
+            <SoccessMesReg />
+          </Typography>
+        ) : null}
       </form>
     </div>
   );

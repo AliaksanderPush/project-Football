@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLayoutEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { HeaderVideo } from "./HeaderItems/HeaderItemsVideo";
 import { HeaderBanner } from "./HeaderItems/HeaderItemsBanner";
 import { CustomLink } from "../../service/CustomLink";
-
+import PersonIcon from "@mui/icons-material/Person";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import { useSelector } from "react-redux";
+import { userEnter } from "../../redux/selectors";
 import "./Header.css";
 
 export const Header = () => {
   const headerRef = useRef();
-
+  const auth = useSelector(userEnter);
   const location = useLocation();
   const path = location.pathname;
 
   const [active, setActive] = useState(false);
   const [hideHeaderElem, setHeaderElem] = useState(false);
+  const [userAuth, setUserAuth] = useState({});
+  const { ented, user } = userAuth;
 
   const activeCorrectFilter = () => {
     setActive(!active);
@@ -38,6 +43,10 @@ export const Header = () => {
     }
   }, [path]);
 
+  useEffect(() => {
+    setUserAuth(auth);
+  }, [auth]);
+
   return (
     <>
       <header className="fix" ref={headerRef}>
@@ -52,6 +61,10 @@ export const Header = () => {
           ></div>
           <div className="header-nav">
             <ul className="menu-area">
+              <li className="user-ented">
+                {!!user ? user["loginReg"] : null}{" "}
+                {ented ? <PersonIcon /> : <PersonOutlineOutlinedIcon />}
+              </li>
               <li className="active">
                 <CustomLink to="/">Home</CustomLink>
               </li>

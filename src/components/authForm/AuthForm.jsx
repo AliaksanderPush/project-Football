@@ -1,52 +1,68 @@
 import React, { useEffect, useState } from "react";
-import { loginValidate, passwordValidate} from '../validation/Validation';
+import { loginValidate, passwordValidate } from "../validation/Validation";
 import { Typography } from "@mui/material";
 import { Link } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
-import {
-  useForm,
-  Controller,
-  useFormState,
-} from "react-hook-form";
+import { useForm, Controller, useFormState } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getInfo } from "../../redux/acshions";
+import { SoccessMesAuth, ErrorMes } from "../";
+import { usersAuth } from "../../redux/selectors";
+
 import "./AuthForm.css";
-
-
-
 
 export const AuthForm = () => {
   const { handleSubmit, control } = useForm();
   const { errors } = useFormState({ control });
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const users = useSelector((state) => {
-    console.log('state>>',state.authReducer.user)
-   // return state;
-  });
+  const users = useSelector(usersAuth);
   const [user, setUser] = useState({});
   const [value, setValue] = useState({});
   const [message, setMessage] = useState(false);
+  const [typeMess, setTypeMess] = useState(false);
+
   const onSubmit = (data) => {
     dispatch(getInfo());
     setValue(data);
-    setMessage(true);
-    setTimeout(() => {
-      setMessage(false)
-    },2000);
+    checkUser();
   };
 
   const handleClick = (e) => {
     e.preventDefault();
     navigate("/singUp/registration");
   };
-  
+
+  const checkUser = () => {
+    console.log("user>>", user);
+    console.log("value>>", value);
+
+    const { login, password } = value;
+    const { loginReg, passwordReg } = user;
+    if (user && value) {
+      if (login === loginReg && password === passwordReg) {
+        setTypeMess(true);
+        setMessage(true);
+        setTimeout(() => {
+          setMessage(false);
+        }, 5000);
+      } else {
+        setTypeMess(false);
+        setMessage(true);
+        setTimeout(() => {
+          setMessage(false);
+        }, 5000);
+      }
+    }
+  };
+
   useEffect(() => {
     setUser(users);
   }, [users]);
+
   return (
     <div className="auth-form">
       <Typography variant="h4" component="div" gutterBottom={true}>
@@ -118,12 +134,11 @@ export const AuthForm = () => {
           Create your account
         </Link>
       </div>
-      { !!message 
-          ? <Typography variant="h6" component="div" className="registration-mess"
-            sx={{ color: "green" }} 
-            >You have successfully registered!</Typography>
-          : null
-        }
+      {!!message ? (
+        <Typography variant="h6" component="span">
+          {!typeMess ? <ErrorMes /> : <SoccessMesAuth />}
+        </Typography>
+      ) : null}
     </div>
   );
 };

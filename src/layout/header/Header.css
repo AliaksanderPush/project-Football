@@ -46,6 +46,10 @@ header {
   list-style: none;
   margin: 20px 0;
 }
+
+.menu-area > .user-ented {
+  color: #f5bb00;
+}
 .menu-area li {
   display: inline-block;
   margin: 0 10px;

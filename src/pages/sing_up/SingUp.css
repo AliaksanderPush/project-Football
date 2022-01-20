@@ -1,16 +1,12 @@
 .auth-page {
-  
   background: url("/public/img/foot.jpg") no-repeat;
   background-size: cover;
   opacity: 0.8;
   min-height: calc(100vh - 160px);
-  
-  
 }
 
 @media (max-width: 1026px) {
   .auth-page {
-   width: 600px;
+    width: 600px;
   }
-  
 }

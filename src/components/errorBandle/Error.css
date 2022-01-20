@@ -1,3 +1,9 @@
+.err {
+  color: red;
+}
+.soccess {
+  color: green;
+}
 .error {
   font-size: 20px;
   position: absolute;
