@@ -15,3 +15,17 @@
 .registration-mess {
   text-align: center;
 }
+
+.registration-page {
+    background: url("/public/img/foot3.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: calc(100vh - 160px);
+  }
+  
+  @media (max-width: 1026px) {
+    .registration-page {
+      width: 600px;
+    }
+  }
+  

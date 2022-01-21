@@ -61,10 +61,6 @@ export const Header = () => {
           ></div>
           <div className="header-nav">
             <ul className="menu-area">
-              <li className="user-ented">
-                {!!user ? user["loginReg"] : null}{" "}
-                {ented ? <PersonIcon /> : <PersonOutlineOutlinedIcon />}
-              </li>
               <li className="active">
                 <CustomLink to="/">Home</CustomLink>
               </li>
@@ -74,15 +70,19 @@ export const Header = () => {
               <li className="active">
                 <CustomLink to="/singUp/">sing Up</CustomLink>
               </li>
+              <li className="user-ented">
+                {!!user ? user["loginReg"] : null}{" "}
+                {ented ? <PersonIcon /> : <PersonOutlineOutlinedIcon />}
+            </li>
             </ul>
           </div>
         </div>
+        
         {hideHeaderElem ? <HeaderBanner /> : null}
-
         <div className={"showcase" + (active ? "" : " hide-menu")}>
           <div className="menu">
             <ul>
-              <li>
+             <li>
                 <CustomLink to="/">Home</CustomLink>
               </li>
               <li>
@@ -91,6 +91,10 @@ export const Header = () => {
               <li>
                 <CustomLink to="/singUp/">Sing up</CustomLink>
               </li>
+              <li>
+                {!!user ? user["loginReg"] : null}{" "}
+                {ented ? <PersonIcon /> : <PersonOutlineOutlinedIcon />}
+             </li>
             </ul>
           </div>
         </div>

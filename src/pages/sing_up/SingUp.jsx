@@ -15,7 +15,7 @@ export const SingUp = () => {
           <div className="col-sm-12 col-md-6 ">
           <AuthForm /> 
           </div>
-          <div className="col-sm-12 col-md-6 auth-page  ">
+          <div className="col-sm-12 col-md-6 auth-page">
           {err ? <Error /> : null}
           </div>
         </div>

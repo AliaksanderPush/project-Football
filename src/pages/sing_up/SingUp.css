@@ -1,5 +1,6 @@
 .auth-page {
   background: url("/public/img/foot.jpg") no-repeat;
+  background-position: center center;
   background-size: cover;
   opacity: 0.8;
   min-height: calc(100vh - 160px);

@@ -172,7 +172,7 @@ header {
   right: 0;
   top: 60px;
   width: 20%;
-  height: 200px;
+  height: 250px;
   padding: 100px;
   display: flex;
   justify-content: space-between;
@@ -217,7 +217,7 @@ header {
 .menu ul li a:hover {
   color: blue;
 }
-@media (max-width: 677px) {
+@media (max-width: 768px) {
   .header-nav {
     display: none;
   }

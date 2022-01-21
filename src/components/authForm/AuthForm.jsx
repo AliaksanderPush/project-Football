@@ -28,7 +28,7 @@ export const AuthForm = () => {
   const onSubmit = (data) => {
     dispatch(getInfo());
     setValue(data);
-    checkUser();
+    
   };
 
   const handleClick = (e) => {
@@ -61,6 +61,7 @@ export const AuthForm = () => {
 
   useEffect(() => {
     setUser(users);
+    checkUser();
   }, [users]);
 
   return (
