@@ -2,13 +2,12 @@ import React from "react";
 import { AuthForm } from "../../components/authForm/AuthForm";
 import { useSelector } from "react-redux";
 import { Error } from "../../components";
+import {error} from '../../redux/selectors';
 import "./SingUp.css";
 
 export const SingUp = () => {
-  const err = useSelector((state) => {
-    const { AppReducer } = state;
-    return AppReducer.error;
-  });
+  const err = useSelector(error);
+   
   return (
       <div className="container-fluid">
         <div className="row">

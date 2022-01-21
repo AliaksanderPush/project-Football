@@ -4,20 +4,16 @@ import { SingleMatchCard } from "./singleMatchCard/SingleMatchCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { myUseAxios } from "../../redux";
+import {videoMatchs,filterMatch } from '../../redux/selectors';
 import { VIDEO_MATCHES_LOAD } from "../../redux";
 
 export const MatchCards = () => {
   const [filter, setFilter] = useState("");
   const dispatch = useDispatch();
-  const videoMatches = useSelector(({ footVidReducer }) => {
-    return footVidReducer.matches;
-  });
+  const videoMatches = useSelector(videoMatchs);
+   const filterMatches = useSelector(filterMatch); 
 
-  const filterMatches = useSelector(({ chooseChampReducer }) => {
-    return chooseChampReducer.index;
-  });
-
-  const handleFilter = () => {
+   const handleFilter = () => {
     if (filter) {
       return videoMatches.filter((item) => item.competition === filter);
     } else {
