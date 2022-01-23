@@ -8,7 +8,6 @@ import SendIcon from "@mui/icons-material/Send";
 import { useForm, Controller, useFormState } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getInfo } from "../../redux/acshions";
 import { SoccessMesAuth, ErrorMes } from "../";
 import { usersAuth } from "../../redux/selectors";
 
@@ -26,9 +25,8 @@ export const AuthForm = () => {
   const [typeMess, setTypeMess] = useState(false);
 
   const onSubmit = (data) => {
-    dispatch(getInfo());
+    //dispatch(getInfo());
     setValue(data);
-    
   };
 
   const handleClick = (e) => {
@@ -37,9 +35,6 @@ export const AuthForm = () => {
   };
 
   const checkUser = () => {
-    console.log("user>>", user);
-    console.log("value>>", value);
-
     const { login, password } = value;
     const { loginReg, passwordReg } = user;
     if (user && value) {
