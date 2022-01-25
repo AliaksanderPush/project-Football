@@ -1,7 +1,7 @@
 import {
   POST_SERVER_REGISTRATION,
   POST_SERVER_AUTH,
-  SERVER_LOGOUT,
+  USER_LOGOUT,
   USER_ENTER,
   USER_LEFT,
   GET_USER_LOAD,
@@ -21,7 +21,7 @@ export const authReducer = (state = initialState, action) => {
         user: action.auth,
         ented: action.ented,
       };
-    case SERVER_LOGOUT:
+    case USER_LOGOUT:
       return {
         ...state,
         user: {},

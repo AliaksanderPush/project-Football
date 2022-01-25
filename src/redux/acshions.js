@@ -14,7 +14,7 @@ import {
   FILTER_CHAMP,
   POST_SERVER_AUTH,
   POST_SERVER_REGISTRATION,
-  SERVER_LOGOUT,
+  USER_LOGOUT,
   USER_ENTER,
   USER_LEFT,
   GET_USER_LOAD,
@@ -114,14 +114,14 @@ export function registration(userName, email, password) {
     }
   };
 }
-export function logout({ email, password }) {
+export function logout() {
   return async (dispatch) => {
     try {
-      const response = await logoutSite(email, password);
+      const response = await logoutSite();
       console.log(response);
       localStorage.removeItem("token");
       dispatch({
-        type: SERVER_LOGOUT,
+        type: USER_LOGOUT,
         auth: {},
         ented: false,
       });
