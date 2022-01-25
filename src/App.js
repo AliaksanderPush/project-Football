@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./resourses/styles.css";
 import { Layout } from "./layout/Layout";
 import { Routes, Route } from "react-router-dom";
 import { Home, WatchMatches, SingUp, Whoops404 } from "./pages";
 import { MatchLive, RegistrationForm } from "./components";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useDispatch } from "react-redux";
+import { checkUser } from "./redux/acshions";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      dispatch(checkUser());
+    }
+  }, [dispatch]);
   return (
     <>
       <Routes>
@@ -14,8 +22,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="watch_matches" element={<WatchMatches />} />
           <Route path="watch_matches/:title" element={<MatchLive />} />
-          <Route path="singUp" element={<SingUp />} />
-          <Route path="singUp/:registration" element={<RegistrationForm/>} />
+          <Route path="singUp/login" element={<SingUp />} />
+          <Route path="singUp/registration" element={<RegistrationForm />} />
           <Route path="*" element={<Whoops404 />} />
         </Route>
       </Routes>
