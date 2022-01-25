@@ -11,3 +11,4 @@ export const SERVER_LOGOUT = "SERVER_LOGOUT";
 export const POST_SERVER_REGISTRATION = "POST_SERVER_REGISTRATION";
 export const USER_ENTER = "USER_ENTER";
 export const USER_LEFT = "USER_LEFT";
+export const GET_USER_LOAD = "GET_USER_LOAD";

@@ -4,6 +4,7 @@ import {
   SERVER_LOGOUT,
   USER_ENTER,
   USER_LEFT,
+  GET_USER_LOAD,
 } from "./types";
 
 const initialState = {
@@ -14,17 +15,11 @@ const initialState = {
 export const authReducer = (state = initialState, action) => {
   console.log("action>>>", action);
   switch (action.type) {
-    case POST_SERVER_AUTH:
+    case POST_SERVER_AUTH || GET_USER_LOAD || POST_SERVER_REGISTRATION:
       return {
         ...state,
         user: action.auth,
-        ented: true,
-      };
-    case POST_SERVER_REGISTRATION:
-      return {
-        ...state,
-        // user: action.auth,
-        // ented: true,
+        ented: action.ented,
       };
     case SERVER_LOGOUT:
       return {

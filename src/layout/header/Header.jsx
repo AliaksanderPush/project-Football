@@ -19,8 +19,8 @@ export const Header = () => {
   const [active, setActive] = useState(false);
   const [hideHeaderElem, setHeaderElem] = useState(false);
   const [userAuth, setUserAuth] = useState({});
-  const { ented, user } = userAuth;
-
+  const { userName, isActivated } = userAuth;
+  console.log("header>>", auth);
   const activeCorrectFilter = () => {
     setActive(!active);
   };
@@ -68,33 +68,33 @@ export const Header = () => {
                 <CustomLink to="/watch_matches/">Whatch Matches</CustomLink>
               </li>
               <li className="active">
-                <CustomLink to="/singUp/">sing Up</CustomLink>
+                <CustomLink to="/singUp/login">sing Up</CustomLink>
               </li>
               <li className="user-ented">
-                {!!user ? user["loginReg"] : null}{" "}
-                {ented ? <PersonIcon /> : <PersonOutlineOutlinedIcon />}
-            </li>
+                {!!userName ? userName : null}{" "}
+                {isActivated ? <PersonIcon /> : <PersonOutlineOutlinedIcon />}
+              </li>
             </ul>
           </div>
         </div>
-        
+
         {hideHeaderElem ? <HeaderBanner /> : null}
         <div className={"showcase" + (active ? "" : " hide-menu")}>
           <div className="menu">
             <ul>
-             <li>
+              <li>
                 <CustomLink to="/">Home</CustomLink>
               </li>
               <li>
                 <CustomLink to="/watch_matches/">Whatch Matches</CustomLink>
               </li>
               <li>
-                <CustomLink to="/singUp/">Sing up</CustomLink>
+                <CustomLink to="/singUp/login">Sing up</CustomLink>
               </li>
               <li>
-                {!!user ? user["loginReg"] : null}{" "}
-                {ented ? <PersonIcon /> : <PersonOutlineOutlinedIcon />}
-             </li>
+                {!!userName ? userName : null}{" "}
+                {isActivated ? <PersonIcon /> : <PersonOutlineOutlinedIcon />}*
+              </li>
             </ul>
           </div>
         </div>

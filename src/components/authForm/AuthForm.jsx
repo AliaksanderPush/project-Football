@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { loginValidate, passwordValidate } from "../validation/Validation";
+import React, { useState } from "react";
+import { emailValidate, passwordValidate } from "../validation/Validation";
 import { Typography } from "@mui/material";
 import { Link } from "@mui/material";
 import TextField from "@mui/material/TextField";
@@ -9,6 +9,7 @@ import { useForm, Controller, useFormState } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SoccessMesAuth, ErrorMes } from "../";
+import { login } from "../../redux/acshions";
 import { usersAuth } from "../../redux/selectors";
 
 import "./AuthForm.css";
@@ -19,45 +20,18 @@ export const AuthForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const users = useSelector(usersAuth);
-  const [user, setUser] = useState({});
-  const [value, setValue] = useState({});
   const [message, setMessage] = useState(false);
   const [typeMess, setTypeMess] = useState(false);
 
   const onSubmit = (data) => {
-    //dispatch(getInfo());
-    setValue(data);
+    const { email, password } = data;
+    dispatch(login(email, password));
   };
 
   const handleClick = (e) => {
     e.preventDefault();
     navigate("/singUp/registration");
   };
-
-  const checkUser = () => {
-    const { login, password } = value;
-    const { loginReg, passwordReg } = user;
-    if (user && value) {
-      if (login === loginReg && password === passwordReg) {
-        setTypeMess(true);
-        setMessage(true);
-        setTimeout(() => {
-          setMessage(false);
-        }, 5000);
-      } else {
-        setTypeMess(false);
-        setMessage(true);
-        setTimeout(() => {
-          setMessage(false);
-        }, 5000);
-      }
-    }
-  };
-
-  useEffect(() => {
-    setUser(users);
-    checkUser();
-  }, [users]);
 
   return (
     <div className="auth-form">
@@ -67,22 +41,22 @@ export const AuthForm = () => {
       <form className="form-sub" onSubmit={handleSubmit(onSubmit)}>
         <Controller
           control={control}
-          name="login"
-          rules={loginValidate}
+          name="email"
+          rules={emailValidate}
           defaultValue=""
           render={({ field }) => (
             <TextField
               {...field}
               id="outlined-error-helper-text"
-              name="login"
-              label="Login"
+              name="email"
+              label="email"
               size="small"
               margin="normal"
               className="auth-form-input"
               fullWidth
               variant="outlined"
-              error={!!errors.login?.message}
-              helperText={errors.login?.message}
+              error={!!errors.email?.message}
+              helperText={errors.email?.message}
             />
           )}
         />

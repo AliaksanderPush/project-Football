@@ -9,26 +9,26 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { useForm, Controller, useFormState } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { registration } from "../../redux/acshions";
+import { isActivation } from "../../redux/selectors";
 import { useNavigate } from "react-router";
 import { SoccessMesReg } from "../errorBandle/Error";
 import "./RegistrationForm.css";
 
 export const RegistrationForm = () => {
+  const dispatch = useDispatch();
+  const user = useSelector(isActivation);
   const { handleSubmit, control } = useForm();
   const [mess, setMess] = useState(false);
   const { errors } = useFormState({ control });
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    const { email, passwordReg } = data;
-    // console.log(email, passwordReg);
-    dispatch(registration(email, passwordReg));
-    setMess(!mess);
+    const { loginReg, email, passwordReg } = data;
+    dispatch(registration(loginReg, email, passwordReg));
   };
-
+  console.log(user);
   return (
     <div className="container-fluid">
       <div className="row">

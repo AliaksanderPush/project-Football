@@ -5,7 +5,7 @@ import {
 } from "./acshionsServer/AuthService";
 import axios from "axios";
 import { VIDEO_MATCH_LIFE } from "./types";
-
+import { API_URL } from "../redux/acshionsServer/request";
 import {
   LOADER_DISPLAY_ON,
   LOADER_DISPLAY_OFF,
@@ -17,6 +17,7 @@ import {
   SERVER_LOGOUT,
   USER_ENTER,
   USER_LEFT,
+  GET_USER_LOAD,
 } from "./types";
 
 export function myUseAxios({ url, types }) {
@@ -73,41 +74,19 @@ export function filterChamp(champ) {
     liga: champ,
   };
 }
-/*
-export function getInfo() {
-  return async (dispatch) => {
-    const url = "https://fe.it-academy.by/AjaxStringStorage2.php";
-    let sp = new URLSearchParams();
-    sp.append("f", "READ");
-    sp.append("n", "PUSHNOV_PROJECT_FOOTBALL");
 
-    try {
-      let response = await fetch(url, { method: "post", body: sp });
-      let data = await response.json();
-      const res = JSON.parse(data.result);
-      dispatch({
-        type: GET_SERVER_AUTH,
-        auth: res,
-        ented: true,
-      });
-    } catch (error) {
-      dispatch(errorOn());
-      console.error(error);
-      dispatch(loaderOff());
-    }
-  };
-}
-*/
 export function login(email, password) {
   return async (dispatch) => {
     try {
+      console.log("прилетело в функцию", email, password);
       const response = await loginAuth(email, password);
-      console.log(response);
-      localStorage.setItem("token", response.data.accessToken);
+      console.log("ответ сервера:", response);
+      const { data } = response;
+      localStorage.setItem("token", data.accessToken);
       dispatch({
         type: POST_SERVER_AUTH,
-        auth: response,
-        ented: true,
+        auth: data.user,
+        ented: data.user.isActivated,
       });
     } catch (error) {
       dispatch(errorOn());
@@ -117,21 +96,21 @@ export function login(email, password) {
   };
 }
 
-export function registration({ email, password }) {
+export function registration(userName, email, password) {
   return async (dispatch) => {
     try {
-      const response = await registartionServer(email, password);
-      console.log(response);
-      localStorage.setItem("token", response.data.accessToken);
+      const response = await registartionServer(userName, email, password);
+      console.log("ответ сервера:", response);
+      const { data } = response;
+      localStorage.setItem("token", data.accesToken);
       dispatch({
         type: POST_SERVER_REGISTRATION,
-        auth: response,
-        ented: true,
+        auth: data.user,
+        ented: data.user.isActivated,
       });
     } catch (error) {
       dispatch(errorOn());
       console.error(error);
-      dispatch(loaderOff());
     }
   };
 }
@@ -143,13 +122,33 @@ export function logout({ email, password }) {
       localStorage.removeItem("token");
       dispatch({
         type: SERVER_LOGOUT,
-        auth: response,
+        auth: {},
         ented: false,
       });
     } catch (error) {
       dispatch(errorOn());
       console.error(error);
-      dispatch(loaderOff());
+    }
+  };
+}
+
+export function checkUser() {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`${API_URL}/refresh`, {
+        withCredentials: true,
+      });
+      const { data } = response;
+      console.log("checkUser", data);
+      localStorage.setItem("token", data.accessToken);
+      dispatch({
+        type: GET_USER_LOAD,
+        auth: data.user,
+        ented: data.user.isActivated,
+      });
+    } catch (error) {
+      dispatch(errorOn());
+      console.error(error);
     }
   };
 }
