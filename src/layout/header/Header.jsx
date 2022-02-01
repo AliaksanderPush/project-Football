@@ -14,6 +14,7 @@ export const Header = () => {
   const headerRef = useRef();
   const auth = useSelector(userEnter);
   const location = useLocation();
+
   const path = location.pathname;
 
   const [active, setActive] = useState(false);
@@ -93,7 +94,7 @@ export const Header = () => {
               </li>
               <li>
                 {!!userName ? userName : null}{" "}
-                {isActivated ? <PersonIcon /> : <PersonOutlineOutlinedIcon />}*
+                {isActivated ? <PersonIcon /> : <PersonOutlineOutlinedIcon />}
               </li>
             </ul>
           </div>

@@ -27,8 +27,13 @@ export const RegistrationForm = () => {
   const onSubmit = (data) => {
     const { loginReg, email, passwordReg } = data;
     dispatch(registration(loginReg, email, passwordReg));
+    user && setMess(true);
+    setTimeout(() => {
+      setMess(false);
+      navigate("/watch_matches");
+    }, 2000);
   };
-  console.log(user);
+
   return (
     <div className="container-fluid">
       <div className="row">

@@ -13,9 +13,9 @@ const initialState = {
 };
 
 export const authReducer = (state = initialState, action) => {
-  console.log("action>>>", action);
+  console.log("action>>>", action.auth);
   switch (action.type) {
-    case POST_SERVER_AUTH || GET_USER_LOAD || POST_SERVER_REGISTRATION:
+    case POST_SERVER_AUTH:
       return {
         ...state,
         user: action.auth,
@@ -28,17 +28,17 @@ export const authReducer = (state = initialState, action) => {
         ented: false,
       };
 
-    case USER_ENTER:
+    case GET_USER_LOAD:
       return {
         ...state,
         user: action.auth,
         ented: action.ented,
       };
-    case USER_LEFT:
+    case POST_SERVER_REGISTRATION:
       return {
         ...state,
-        user: "",
-        ented: false,
+        user: action.auth,
+        ented: action.ented,
       };
 
     default:
