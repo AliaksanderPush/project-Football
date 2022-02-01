@@ -15,8 +15,6 @@ import {
   POST_SERVER_AUTH,
   POST_SERVER_REGISTRATION,
   USER_LOGOUT,
-  USER_ENTER,
-  USER_LEFT,
   GET_USER_LOAD,
 } from "./types";
 
@@ -78,9 +76,8 @@ export function filterChamp(champ) {
 export function login(email, password) {
   return async (dispatch) => {
     try {
-      console.log("прилетело в функцию", email, password);
       const response = await loginAuth(email, password);
-      console.log("ответ сервера:", response);
+      console.log("ответ>>>", response.status);
       const { data } = response;
       localStorage.setItem("token", data.accessToken);
       dispatch({
@@ -150,21 +147,5 @@ export function checkUser() {
       dispatch(errorOn());
       console.error(error);
     }
-  };
-}
-
-export function userEnter(userName, userEnt) {
-  return {
-    type: USER_ENTER,
-    auth: userName,
-    ented: userEnt,
-  };
-}
-
-export function userLeft() {
-  return {
-    type: USER_LEFT,
-    auth: false,
-    ented: false,
   };
 }

@@ -9,6 +9,4 @@ export const FILTER_CHAMP = "FILTER_CHAMP";
 export const POST_SERVER_AUTH = "POST_SERVER_AUTH";
 export const USER_LOGOUT = "SERVER_LOGOUT";
 export const POST_SERVER_REGISTRATION = "POST_SERVER_REGISTRATION";
-export const USER_ENTER = "USER_ENTER";
-export const USER_LEFT = "USER_LEFT";
 export const GET_USER_LOAD = "GET_USER_LOAD";

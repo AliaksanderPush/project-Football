@@ -22,7 +22,7 @@ export const AuthForm = () => {
   const users = useSelector(usersAuth);
   const [message, setMessage] = useState(false);
   const [typeMess, setTypeMess] = useState(false);
-
+  console.log("users>>>", users);
   const onSubmit = (data) => {
     const { email, password } = data;
     dispatch(login(email, password));

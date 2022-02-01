@@ -2,8 +2,6 @@ import {
   POST_SERVER_REGISTRATION,
   POST_SERVER_AUTH,
   USER_LOGOUT,
-  USER_ENTER,
-  USER_LEFT,
   GET_USER_LOAD,
 } from "./types";
 
@@ -13,7 +11,6 @@ const initialState = {
 };
 
 export const authReducer = (state = initialState, action) => {
-  console.log("action>>>", action.auth);
   switch (action.type) {
     case POST_SERVER_AUTH:
       return {

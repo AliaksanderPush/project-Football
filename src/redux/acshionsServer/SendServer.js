@@ -34,6 +34,6 @@ export const SendServer = async (props) => {
 
   function updateReady(callresult) {
     console.log(callresult);
-    if (callresult.error != undefined) alert(callresult.error);
+    if (callresult.error !== undefined) alert(callresult.error);
   }
 };

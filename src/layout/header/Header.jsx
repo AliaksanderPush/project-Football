@@ -7,7 +7,7 @@ import { CustomLink } from "../../service/CustomLink";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import { useSelector } from "react-redux";
 import { userEnter } from "../../redux/selectors";
-import {MenuListComposition} from './menuItem/MenuItem';
+import { MenuListComposition } from "./menuItem/MenuItem";
 import "./Header.css";
 
 export const Header = () => {
@@ -16,12 +16,15 @@ export const Header = () => {
   const location = useLocation();
 
   const path = location.pathname;
-  
+
   const [active, setActive] = useState(false);
   const [hideHeaderElem, setHeaderElem] = useState(false);
-  const [userAuth, setUserAuth] = useState({userName:'Sasha',isActivated:true });
+  const [userAuth, setUserAuth] = useState({
+    userName: "Sasha",
+    isActivated: true,
+  });
   const { userName, isActivated } = userAuth;
-  
+
   const activeCorrectFilter = () => {
     setActive(!active);
   };
@@ -43,11 +46,11 @@ export const Header = () => {
       header.style.height = "100vh";
     }
   }, [path]);
- /*
+
   useEffect(() => {
     setUserAuth(auth);
   }, [auth]);
-*/
+
   return (
     <>
       <header className="fix" ref={headerRef}>
@@ -72,8 +75,11 @@ export const Header = () => {
                 <CustomLink to="/singUp/login">sing Up</CustomLink>
               </li>
               <li className="user-ented">
-                {isActivated ? <MenuListComposition userName={userName} /> : <PersonOutlineOutlinedIcon />}{" "}
-                
+                {isActivated ? (
+                  <MenuListComposition userName={userName} />
+                ) : (
+                  <PersonOutlineOutlinedIcon />
+                )}{" "}
               </li>
             </ul>
           </div>
@@ -93,12 +99,12 @@ export const Header = () => {
                 <CustomLink to="/singUp/login">Sing up</CustomLink>
               </li>
               <li>
-<<<<<<< HEAD
                 {!!userName ? userName : null}{" "}
-                {isActivated ? <PersonIcon /> : <PersonOutlineOutlinedIcon />}
-=======
-                {isActivated ? <MenuListComposition userName={userName} />  : <PersonOutlineOutlinedIcon />}
->>>>>>> edd6dad60717175b37bfbba34c73d8b992139738
+                {isActivated ? (
+                  <MenuListComposition userName={userName} />
+                ) : (
+                  <PersonOutlineOutlinedIcon />
+                )}
               </li>
             </ul>
           </div>
