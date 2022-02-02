@@ -136,7 +136,6 @@ export function checkUser() {
         withCredentials: true,
       });
       const { data } = response;
-      console.log("checkUser", data);
       localStorage.setItem("token", data.accessToken);
       dispatch({
         type: GET_USER_LOAD,

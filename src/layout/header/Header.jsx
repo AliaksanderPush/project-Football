@@ -99,7 +99,6 @@ export const Header = () => {
                 <CustomLink to="/singUp/login">Sing up</CustomLink>
               </li>
               <li>
-                {!!userName ? userName : null}{" "}
                 {isActivated ? (
                   <MenuListComposition userName={userName} />
                 ) : (
