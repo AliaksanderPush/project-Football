@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { emailValidate, passwordValidate } from "../validation/Validation";
 import { Typography } from "@mui/material";
 import { Link } from "@mui/material";
@@ -7,10 +7,8 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { useForm, Controller, useFormState } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { SoccessMesAuth, ErrorMes } from "../";
+import { useDispatch } from "react-redux";
 import { login } from "../../redux/acshions";
-import { usersAuth } from "../../redux/selectors";
 
 import "./AuthForm.css";
 
@@ -19,9 +17,7 @@ export const AuthForm = () => {
   const { errors } = useFormState({ control });
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const users = useSelector(usersAuth);
-  const [message, setMessage] = useState(false);
-  const [typeMess, setTypeMess] = useState(false);
+  //const users = useSelector(usersAuth);
   const onSubmit = (data) => {
     const { email, password } = data;
     dispatch(login(email, password));
@@ -103,11 +99,6 @@ export const AuthForm = () => {
           Create your account
         </Link>
       </div>
-      {!!message ? (
-        <Typography variant="h6" component="span">
-          {!typeMess ? <ErrorMes /> : <SoccessMesAuth />}
-        </Typography>
-      ) : null}
     </div>
   );
 };
