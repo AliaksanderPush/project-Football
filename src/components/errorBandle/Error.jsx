@@ -9,11 +9,18 @@ export const Error = () => {
   );
 };
 export const ErrorMes = () => {
-  return <span className="err">The username or password is incorrect!</span>;
+  return (
+    <div className="error">
+      <span>The username or password is incorrect!</span>
+    </div>
+  );
 };
 export const SoccessMesReg = () => {
   return <span className="soccess">You have successfully registered!</span>;
 };
 export const SoccessMesAuth = () => {
   return <span className="soccess">Welcome</span>;
+};
+export const incorectLoginMess = () => {
+  return "The username or password is incorrect!";
 };

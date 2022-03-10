@@ -30,7 +30,7 @@ export const RegistrationForm = () => {
     user && setMess(true);
     setTimeout(() => {
       setMess(false);
-      navigate("/watch_matches");
+      navigate("/watch_matches/");
     }, 2000);
   };
 

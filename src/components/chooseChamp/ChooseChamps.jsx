@@ -2,11 +2,10 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { filterChamp } from "../../redux";
 import { Btns } from "../../resourses/champs";
-import uniqid from "uniqid";
 import "./ChooseChamp.css";
 
 export const ChooseChamps = () => {
-    const dispath = useDispatch();
+  const dispath = useDispatch();
 
   function handleChange(e) {
     dispath(filterChamp(e.target.value));

@@ -6,6 +6,7 @@ import {
 import axios from "axios";
 import { VIDEO_MATCH_LIFE } from "./types";
 import { API_URL } from "../redux/acshionsServer/request";
+import { incorectLoginMess, ErrorMes } from "../components/errorBandle/Error";
 import {
   LOADER_DISPLAY_ON,
   LOADER_DISPLAY_OFF,
@@ -87,7 +88,6 @@ export function login(email, password) {
       });
     } catch (error) {
       dispatch(errorOn());
-      console.error(error);
       dispatch(loaderOff());
     }
   };
