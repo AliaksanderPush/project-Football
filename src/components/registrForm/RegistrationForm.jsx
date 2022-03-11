@@ -96,6 +96,7 @@ export const RegistrationForm = () => {
                     {...field}
                     id="outlined-error-helper-text3"
                     label="password"
+                    type="password"
                     size="small"
                     margin="normal"
                     className="auth-form-input"

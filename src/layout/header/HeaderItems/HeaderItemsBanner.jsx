@@ -10,7 +10,7 @@ export const HeaderBanner = () => {
     <>
       <div className="header-text">
         <h2>
-          Wach <span>FOOTBALL</span>
+          Watch <span>FOOTBALL</span>
         </h2>
         <p>Build Premium</p>
         <button className="header-button" onClick={handleClick}>

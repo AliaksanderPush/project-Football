@@ -10,8 +10,10 @@ export const Error = () => {
 };
 export const ErrorMes = () => {
   return (
-    <div className="error">
-      <span>The username or password is incorrect!</span>
+    <div className="err ">
+      <p>The username or password </p>
+      <p>is incorrect!</p>
+      <p>Create your account</p>
     </div>
   );
 };

@@ -84,6 +84,7 @@ export function MenuListComposition({ userName }) {
                     id="composition-menu"
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
+                    className="drop-menu"
                   >
                     <MenuItem onClick={handleClose}>Logout</MenuItem>
                   </MenuList>

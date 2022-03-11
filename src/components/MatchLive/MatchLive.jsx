@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate } from "react-router";
 import "./MatchLive.css";
 
 export const MatchLive = (props) => {
@@ -9,7 +9,7 @@ export const MatchLive = (props) => {
     const { matchLiveReducer } = state;
     return matchLiveReducer.match;
   });
-  console.log(useLocation());
+
   const goBack = () => navigate(-1);
 
   const icon = "<<";

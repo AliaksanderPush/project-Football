@@ -6,7 +6,6 @@ import {
 import axios from "axios";
 import { VIDEO_MATCH_LIFE } from "./types";
 import { API_URL } from "../redux/acshionsServer/request";
-import { incorectLoginMess, ErrorMes } from "../components/errorBandle/Error";
 import {
   LOADER_DISPLAY_ON,
   LOADER_DISPLAY_OFF,
@@ -78,7 +77,6 @@ export function login(email, password) {
   return async (dispatch) => {
     try {
       const response = await loginAuth(email, password);
-      console.log("ответ>>>", response.status);
       const { data } = response;
       localStorage.setItem("token", data.accessToken);
       dispatch({
@@ -97,7 +95,7 @@ export function registration(userName, email, password) {
   return async (dispatch) => {
     try {
       const response = await registartionServer(userName, email, password);
-      console.log("ответ сервера:", response);
+
       const { data } = response;
       localStorage.setItem("token", data.accesToken);
       dispatch({

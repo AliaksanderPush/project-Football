@@ -12,7 +12,7 @@ export const ChooseChamps = () => {
   }
 
   return (
-    <div className="chooseChamp container">
+    <div className="chooseChamp">
       <div className="row">
         <div className="col">
           {Btns.map((item, index) => {

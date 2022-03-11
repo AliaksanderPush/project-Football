@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AuthForm } from "../../components/authForm/AuthForm";
 import { useSelector, useDispatch } from "react-redux";
 import { ErrorMes } from "../../components";
@@ -9,20 +9,23 @@ import "./SingUp.css";
 export const SingUp = () => {
   const err = useSelector(error);
   const dispatch = useDispatch();
-  function onErrMessage() {
-    <ErrorMes />;
-    dispatch(errorOff());
-  }
+
+  useEffect(() => {
+    if (err) {
+      setTimeout(() => {
+        dispatch(errorOff());
+      }, 3000);
+    }
+  }, [err, dispatch]);
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid ">
       <div className="row">
-        <div className="col-sm-12 col-md-6 ">
+        <div className="col-sm-12 col-md-6 bandle">
+          {err ? <ErrorMes /> : null}
           <AuthForm />
         </div>
-        <div className="col-sm-12 col-md-6 auth-page">
-          {err ? onErrMessage() : null}
-        </div>
+        <div className="col-sm-12 col-md-6 auth-page"></div>
       </div>
     </div>
   );

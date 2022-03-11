@@ -16,18 +16,19 @@
   margin: 10px;
 }
 
-/* Checked */
 .form_radio_btn input[type="radio"]:checked + label {
   background: #f5bb00;
 }
 
-/* Hover */
 .form_radio_btn label:hover {
   color: blue;
 }
 
-/* Disabled */
 .form_radio_btn input[type="radio"]:disabled + label {
   background: #f5bb00;
   color: #666;
+}
+.chooseChamp {
+  width: 65%;
+  margin: 0 auto;
 }

@@ -7,9 +7,7 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { useForm, Controller, useFormState } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { usersAuth } from "../../redux/selectors";
-import { incorectLoginMess } from "../errorBandle/Error";
+import { useDispatch } from "react-redux";
 import { login } from "../../redux/acshions";
 
 import "./AuthForm.css";
@@ -19,11 +17,8 @@ export const AuthForm = () => {
   const { errors } = useFormState({ control });
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const users = useSelector(usersAuth);
-  //console.log("users>>>", users);
 
   const onSubmit = (data) => {
-    console.log("date>>", data);
     const { email, password } = data;
 
     dispatch(login(email, password));
@@ -48,7 +43,7 @@ export const AuthForm = () => {
           render={({ field }) => (
             <TextField
               {...field}
-              id="outlined-error-helper-text"
+              id="outlined-error-helper-text0"
               name="email"
               label="email"
               size="small"
@@ -73,6 +68,7 @@ export const AuthForm = () => {
               id="outlined-error-helper-text"
               name="password"
               label="password"
+              type="password"
               size="small"
               margin="normal"
               className="auth-form-input"

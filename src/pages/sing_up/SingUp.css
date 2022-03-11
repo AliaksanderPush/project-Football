@@ -4,6 +4,10 @@
   background-size: cover;
   opacity: 0.8;
   min-height: calc(100vh - 160px);
+  z-index: -1;
+}
+.bandle {
+  position: relative;
 }
 
 @media (max-width: 1026px) {
