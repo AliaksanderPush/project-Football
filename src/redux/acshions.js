@@ -112,8 +112,7 @@ export function registration(userName, email, password) {
 export function logout() {
   return async (dispatch) => {
     try {
-      const response = await logoutSite();
-      console.log(response);
+      await logoutSite();
       localStorage.removeItem("token");
       dispatch({
         type: USER_LOGOUT,

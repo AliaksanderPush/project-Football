@@ -4,7 +4,6 @@ const initialState = {
 };
 
 export const matchLiveReducer = (state = initialState, action) => {
-  //console.log("mathLive>>>", action);
   switch (action.type) {
     case VIDEO_MATCH_LIFE:
       return {
