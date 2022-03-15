@@ -9,7 +9,7 @@ import { Spinner } from "./components/UI/Spinner";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Home = lazy(() => import("./pages/home/Home"));
-const WatchMatches = lazy(() => import("./pages/Watch matches/WatchMatches"));
+const WatchMatches = lazy(() => import("./pages/WatchMatches/WatchMatches"));
 const SingUp = lazy(() => import("./pages/sing_up/SingUp"));
 const Whoops404 = lazy(() => import("./pages/page 404/Whoops404"));
 
