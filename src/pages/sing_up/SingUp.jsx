@@ -6,7 +6,7 @@ import { errorOff } from "../../redux/acshions";
 import { error } from "../../redux/selectors";
 import "./SingUp.css";
 
-export const SingUp = () => {
+const SingUp = () => {
   const err = useSelector(error);
   const dispatch = useDispatch();
 
@@ -30,3 +30,5 @@ export const SingUp = () => {
     </div>
   );
 };
+
+export default SingUp;

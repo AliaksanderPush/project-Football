@@ -3,7 +3,8 @@ import { CardHome } from "../../components/cards/Card";
 import Aos from "aos";
 import { Info } from "../../resourses/Info";
 import "aos/dist/aos.css";
-export const Home = () => {
+
+const Home = () => {
   useEffect(() => {
     Aos.init();
   }, []);
@@ -24,3 +25,4 @@ export const Home = () => {
     </div>
   );
 };
+export default Home;

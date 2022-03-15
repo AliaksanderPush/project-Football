@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-export function Whoops404() {
+function Whoops404() {
   let location = useLocation();
   console.log(location);
   return (
@@ -9,3 +9,4 @@ export function Whoops404() {
     </div>
   );
 }
+export default Whoops404;

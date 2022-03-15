@@ -6,7 +6,7 @@ import { Error } from "../../components";
 import Typography from "@mui/material/Typography";
 import "./WatchMatches.css";
 
-export const WatchMatches = () => {
+const WatchMatches = () => {
   const err = useSelector((state) => {
     const { AppReducer } = state;
     return AppReducer.error;
@@ -34,3 +34,4 @@ export const WatchMatches = () => {
     </div>
   );
 };
+export default WatchMatches;
