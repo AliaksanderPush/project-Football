@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import "./MatchLive.css";
 
-export const MatchLive = (props) => {
+ const MatchLive = (props) => {
   const navigate = useNavigate();
   const match = useSelector((state) => {
     const { matchLiveReducer } = state;
@@ -30,3 +30,4 @@ export const MatchLive = (props) => {
     </div>
   );
 };
+export default MatchLive;

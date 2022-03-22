@@ -4,7 +4,7 @@ import "./Card.css";
 export const CardHome = ({ liga, aos, src, aos_offset }) => {
   return (
     <div
-      className="col-xs-12 col-lg-4 col-xl-3 card-home"
+      className="col-xs-12 col-lg-4 col-xl-4 col-xxl-4 card-home"
       data-aos={aos}
       data-aos-offset={aos_offset}
     >
